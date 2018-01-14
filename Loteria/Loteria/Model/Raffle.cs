@@ -7,7 +7,8 @@ namespace Loteria.Model
 {
     /*No nosso caso, pelo RF3 "a aplicação deve permitir cadastrar UM sorteio de 6 números aleatórios", teremos apenas 1 sorteio, onde
      todas as apostas estarão relacionadas a este sorteio, mas como no caso da aplicação real sabemos que isso ocorre todo mes, então esse código
-     ja deixa preparado para futuras atualizações onde fizessemos um sorteio todo mês e manter informações dos sorteios anteriores.*/
+     ja deixa ligeiramente preparado para futuras atualizações onde fizessemos um sorteio todo mês e manter informações dos sorteios anteriores.
+     ao invés de criar uma table pra apenas 1 entrada.*/
     public abstract class Raffle
     {
         //Data do sorteio
