@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Loteria.Controller;
+using Loteria.Model;
 /*
- Autor: Vinícius Carvalho Eccher
-     */
+Autor: Vinícius Carvalho Eccher
+*/
 namespace Loteria.View
 {
     /* Classe responsável pela interface com o usuario */
@@ -80,7 +81,7 @@ namespace Loteria.View
         }
 
         //Realiza o sorteio da mega sena.
-        static void DoRaffle (bool invalidInputMsg = false, int lastId = -1, int[] lastRaffleNumbers = null)
+        static void DoRaffle (bool invalidInputMsg = false)
         {
             //declaração 
             int[] raffleNumbers = new int[6];
@@ -88,13 +89,7 @@ namespace Loteria.View
             int id = -1, i = 0;
             Console.Clear();
 
-            //mensagens de ultimas chamadas
-            if (lastId >= 0 && lastRaffleNumbers.Length == 6)
-            {
-                Console.WriteLine("Sorteio com id: " + lastId.ToString() + " realizado, números sorteados: " +
-                    String.Join(", ", lastRaffleNumbers.Select(p => p.ToString()).ToArray()) + "\n");
-            }
-            else if (invalidInputMsg)
+            if (invalidInputMsg)
             {
                 Console.WriteLine("Entrada invalida, certifique-se de usar uma das entradas abaixo:\n ");
             }
@@ -130,21 +125,33 @@ namespace Loteria.View
                     raffleNumbers[i++] = Convert.ToInt32(digit);
                 }
                 //Cria o sorteio
-                id = RaffleController.createRaffleTicket(ref raffleNumbers);
-                //recomeça a função, passando os dados do sorteio realizado.
-                newRaffleTicket(false, id, raffleNumbers);
+                RaffleController.doRaffle(ref raffleNumbers);
+                //exibe o resultado
+                Console.Clear();
+                Console.WriteLine("\nnúmeros sorteados:"+ string.Join(" ", raffleNumbers) + "\nvencedores: \n");
+                Console.WriteLine("id | numeros | acertos");
+
+                foreach (RaffleTicket ticket in RaffleController.getRaffleWinners().OrderBy(item => item.getPontuation()))
+                {
+                    Console.WriteLine(ticket.id + " | " + string.Join(" ", ticket.numbers) + " | " + ticket.getPontuation());
+                }
+                Console.WriteLine("\n pressione qualquer tecla para voltar ao menu principal: \n");
+                Console.ReadLine();
+                mainMenu();
 
             }
             //essa exceção será lançada se a entrada do usuario não estiver de acordo com o especificado.
             catch (ArgumentException)
             {
-                newRaffleTicket(true);
+                DoRaffle(true);
             }
             //essa aqui é se der merda mesmo.
             catch (Exception)
             {
-                newRaffleTicket(true);
+                DoRaffle(true);
             }
+
+            
 
         }
         //exibe o menu principal/inicial, o parametro de entrada é caso o menu esteja sendo aberto logo após uma entrada invalida.

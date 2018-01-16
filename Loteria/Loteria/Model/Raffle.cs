@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,13 +14,17 @@ namespace Loteria.Model
     public abstract class Raffle
     {
         //Data do sorteio
+        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime date { get; protected set; }
         //Código identificador do sorteio
-        public int id { get; protected set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int id { get; set; }
         //resultado do sorteio (números sorteados)
-        public int[] result { get; protected set; }
+        public int[] result { get; set; }
         //salvo 
         public abstract bool save();
+        
 
     }
 }

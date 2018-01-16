@@ -58,6 +58,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -70,6 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\RaffleController.cs" />
+    <Compile Include="Model\DBDealer.cs" />
+    <Compile Include="Model\MegaSenaTicket.cs" />
     <Compile Include="Model\Raffle.cs" />
     <Compile Include="Model\MegaSenaRaffle.cs" />
     <Compile Include="LoteriaDataSet.Designer.cs">
@@ -77,6 +80,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoteriaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Model\RaffleTicket.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
