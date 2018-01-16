@@ -28,7 +28,7 @@ namespace Loteria.Controller
                 //o sistema sorteia e atualiza a entrada que foi passada como referencia e serve como saida.
                 raffleNumbers = MegaSenaRaffle.RandomRaffle();
             //se não for null e não tem tamanho certo então deu ruim, reclama dos argumentos.
-            else if (raffleNumbers.Length != MegaSenaRaffle.neededNumbers)
+            else if (raffleNumbers.Length != MegaSenaRaffle.neededNumbers || raffleNumbers.Min()<1 || raffleNumbers.Max()>60)
                 throw new ArgumentException();
             DBDealer.doRaffle(raffleNumbers);
         }

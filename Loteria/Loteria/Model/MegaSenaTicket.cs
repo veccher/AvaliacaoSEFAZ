@@ -14,8 +14,8 @@ namespace Loteria.Model
             //se a entrada é nula, surpresinha.
             if (numbers == null)
                 this.numbers = MegaSenaRaffle.RandomRaffle();
-            //se não é nula, e tem 6 valores distintos
-            else if (numbers.Length == MegaSenaRaffle.neededNumbers && numbers.Distinct().ToArray().Length == numbers.Length)
+            //se não é nula, e tem 6 valores distintos e entre 1 e 60
+            else if (numbers.Length == MegaSenaRaffle.neededNumbers && numbers.Distinct().ToArray().Length == numbers.Length && numbers.Min()>=1 && numbers.Max()<=60)
                 this.numbers = numbers;
             //se não é uma entrada invalida, reclama.
             else
