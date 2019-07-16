@@ -1,7 +1,1 @@
-{"nodes":[{"name":"A"},{"name":"B"},{"name":"C"},{"name":"A"},{"name":"B"},{"name":"C"},{"name":"A"},{"name":"B"},{"name":"C"}],
- "links":[{"source":0,"target":4,"value":50},{"source":0,"target":5,"value":30},
-          {"source":1,"target":3,"value":38},{"source":1,"target":5,"value":34},
-          {"source":2,"target":3,"value":48},{"source":2,"target":4,"value":64},
-          {"source":3,"target":7,"value":50},{"source":3,"target":8,"value":30},
-          {"source":4,"target":6,"value":78},{"source":4,"target":8,"value":34},
-          {"source":5,"target":6,"value":24},{"source":5,"target":7,"value":25}]}
+{"nodes":[{"name":"A"},{"name":"B"},{"name":"C"},{"name":"A"},{"name":"B"},{"name":"C"},{"name":"A"},{"name":"B"},{"name":"C"}],"links":[{"source":0,"target":4,"value":50},{"source":0,"target":5,"value":30},{"source":1,"target":3,"value":38},{"source":1,"target":5,"value":34},{"source":2,"target":3,"value":48},{"source":2,"target":4,"value":64},{"source":3,"target":7,"value":50},{"source":3,"target":8,"value":30},{"source":4,"target":6,"value":78},{"source":4,"target":8,"value":34},{"source":5,"target":6,"value":24},{"source":5,"target":7,"value":25}]}
